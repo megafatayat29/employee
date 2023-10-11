@@ -8,22 +8,48 @@
           <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
       
-            <form action="../../index3.html" method="post">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Username">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-user"></span>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="has-validation">
+                <div class="input-group mb-3">
+                  <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Username"
+                    formControlName="username"
+                    [ngClass]="isFieldValid('username')"
+                    id="username"
+                    name="username"
+                    required
+                  >
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-user"></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="input-group mb-3">
-                <input type="password" class="form-control" placeholder="Password">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <span class="fas fa-lock"></span>
+                <span class="invalid-feedback"
+                  *ngIf="(loginForm.touched || loginForm.dirty) && loginForm.controls?.['username']?.errors"
+                  >Username harus diisi</span>
+                <div class="input-group mb-3">
+                  <input 
+                    type="password" 
+                    class="form-control" 
+                    placeholder="Password"
+                    formControlName="password"
+                    [ngClass]="isFieldValid('password')"
+                    id="password"
+                    name="password"
+                    required
+                  >
+                  <div class="input-group-append">
+                    <div class="input-group-text">
+                      <span class="fas fa-lock"></span>
+                    </div>
                   </div>
                 </div>
+                <span class="invalid-feedback"
+                  *ngIf="(loginForm.touched || loginForm.dirty) && loginForm.controls?.['password']?.errors"
+                  >{{renderPassErrMessage()}}</span>
               </div>
               <div class="row">
                 <div class="col-8">
@@ -36,7 +62,11 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-4">
-                  <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                  <button 
+                    type="submit" 
+                    class="btn btn-primary btn-block"
+                    [disabled]="loginForm.invalid"
+                  >Sign In</button>
                 </div>
                 <!-- /.col -->
               </div>
