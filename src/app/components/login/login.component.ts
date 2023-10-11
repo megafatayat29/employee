@@ -54,8 +54,8 @@ export class LoginComponent {
   onSubmit(): void {
     this.loading = true;
     const loginAdmin: LoginAdmin = this.loginForm.value;
-    if (this.loginForm.value.username === "alFaqir") {
-      if (this.loginForm.value.password === "H@sbiRobbi") {
+    if (this.loginForm.value.username === "admin") {
+      if (this.loginForm.value.password === "admin123") {
         sessionStorage.setItem('username', loginAdmin.username);
         sessionStorage.setItem('submenu', 'list');
 

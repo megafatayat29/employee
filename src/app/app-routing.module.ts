@@ -5,9 +5,9 @@ import { ListComponent } from './components/dashboard/list/list.component';
 
 const routes: Routes = [
   {
-    path: 'home',
+    path: '',
     pathMatch: 'full',
-    redirectTo: ''
+    redirectTo: '/login'
   },
   { 
     path: 'login', 
