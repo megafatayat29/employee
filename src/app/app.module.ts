@@ -10,6 +10,7 @@ import { ListComponent } from './components/dashboard/list/list.component';
 import { NavbarComponent } from './components/dashboard/navbar/navbar.component';
 import { DataTablesModule } from "angular-datatables";
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './components/dashboard/form/form.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     SidebarComponent,
     ListComponent,
-    NavbarComponent
+    NavbarComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,

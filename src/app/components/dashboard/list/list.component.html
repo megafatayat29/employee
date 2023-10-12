@@ -28,9 +28,26 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                            <h3 class="card-title">All employee in EmployeeBook</h3>
+                                <button class="btn btn-primary" (click)="add()">Add Employee</button>
                             </div>
                             <!-- /.card-header -->
+                            <ng-container *ngIf="message">
+                                <div
+                                class="mx-4 mt-4 alert {{
+                                    message.status ? 'alert-' + message.status : ''
+                                }} fade show"
+                                role="alert"
+                                >
+                                {{ message.text }}
+                                <button
+                                    type="button"
+                                    class="btn-close btn-sm float-end"
+                                    data-bs-dismiss="alert"
+                                    (click)="message = undefined"
+                                    aria-label="Close"
+                                >X</button>
+                                </div>
+                            </ng-container>
                             <div class="card-body" style="overflow: auto;">
                             <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-striped">
                                 <thead>
@@ -44,6 +61,7 @@
                                     <th>Status</th>
                                     <th>Group</th>
                                     <th>Description</th>
+                                    <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -57,6 +75,10 @@
                                         <td>{{ employee.status }}</td>
                                         <td>{{ employee.group }}</td>
                                         <td>{{ employee.description }}</td>
+                                        <td>
+                                            <a class="btn btn-warning" (click)="edit(employee.firstName)"><i class="fas fa-edit"></i></a><br><br>
+                                            <a class="btn btn-danger" (click)="delete(employee.firstName)"><i class="fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
@@ -70,6 +92,7 @@
                                     <th>Status</th>
                                     <th>Group</th>
                                     <th>Description</th>
+                                    <th>Action</th>
                                 </tr>
                                 </tfoot>
                             </table>

@@ -1,8 +1,9 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { Employee } from '../../../models/employee.model';
 import { EmployeeService } from '../../../services/employee/employee.service';
-import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { AlertMessage } from '../../../models/alert-message-interface';
 
 @Component({
   selector: 'app-list',
@@ -14,10 +15,11 @@ export class ListComponent implements OnInit {
   @Input() employees: Employee[] = [];
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
+  message?: AlertMessage;
 
   constructor(
     private readonly employeeService: EmployeeService,
-    @Inject(HttpClient) private httpClient: HttpClient
+    private readonly router: Router
   ) { }
 
   ngOnInit(): void {
@@ -46,4 +48,27 @@ export class ListComponent implements OnInit {
     );
   }
 
+  edit(name: string) {
+    this.message = {
+      status: 'warning',
+      text: `Kamu menekan tombol edit untuk: ${name}`
+    }
+    setTimeout(() => {
+      this.message = undefined;
+    }, 5000);
+  }
+
+  delete(name: string) {
+    this.message = {
+      status: 'danger',
+      text: `Kamu menekan tombol hapus untuk: ${name}`
+    }
+    setTimeout(() => {
+      this.message = undefined;
+    }, 5000);
+  }
+
+  add() {
+    this.router.navigateByUrl('/add');
+  }
 }

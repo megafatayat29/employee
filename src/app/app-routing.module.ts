@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { ListComponent } from './components/dashboard/list/list.component';
+import { FormComponent } from './components/dashboard/form/form.component';
 
 const routes: Routes = [
   {
@@ -14,8 +15,12 @@ const routes: Routes = [
     component: LoginComponent
   },
   { 
-    path: 'dashboard/list', 
+    path: 'list', 
     component: ListComponent
+  },
+  { 
+    path: 'add', 
+    component: FormComponent
   },
 ];
 
