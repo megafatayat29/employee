@@ -31,8 +31,8 @@
                             <h3 class="card-title">All employee in EmployeeBook</h3>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <div class="card-body" style="overflow: auto;">
+                            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>Username</th>
@@ -46,18 +46,18 @@
                                     <th>Description</th>
                                 </tr>
                                 </thead>
-                                <tbody *ngFor="let employee of employees">    
-                                <tr>
-                                    <td>{{ employee.username }}</td>
-                                    <td>{{ employee.firstName }}</td>
-                                    <td>{{ employee.lastName }}</td>
-                                    <td>{{ employee.email }}</td>
-                                    <td>{{ employee.birthDate }}</td>
-                                    <td>{{ employee.basicSalary }}</td>
-                                    <td>{{ employee.status }}</td>
-                                    <td>{{ employee.group }}</td>
-                                    <td>{{ employee.description }}</td>
-                                </tr>
+                                <tbody>
+                                    <tr *ngFor="let employee of employees">
+                                        <td>{{ employee.username }}</td>
+                                        <td>{{ employee.firstName }}</td>
+                                        <td>{{ employee.lastName }}</td>
+                                        <td>{{ employee.email }}</td>
+                                        <td>{{ employee.birthDate }}</td>
+                                        <td>{{ employee.basicSalary }}</td>
+                                        <td>{{ employee.status }}</td>
+                                        <td>{{ employee.group }}</td>
+                                        <td>{{ employee.description }}</td>
+                                    </tr>
                                 </tbody>
                                 <tfoot>
                                 <tr>
