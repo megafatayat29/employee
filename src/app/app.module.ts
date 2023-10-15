@@ -11,7 +11,7 @@ import { NavbarComponent } from './components/dashboard/navbar/navbar.component'
 import { DataTablesModule } from "angular-datatables";
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './components/dashboard/form/form.component';
-
+import { Select2Module } from 'ng-select2-component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { FormComponent } from './components/dashboard/form/form.component';
     FormsModule,
     ReactiveFormsModule,
     DataTablesModule,
-    HttpClientModule
+    HttpClientModule,
+    Select2Module
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

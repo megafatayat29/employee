@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Select2Data } from 'ng-select2-component';
 import { map } from 'rxjs';
 import { AlertMessage } from 'src/app/models/alert-message-interface';
 import { Employee } from 'src/app/models/employee.model';
@@ -20,6 +21,58 @@ export class FormComponent implements OnInit{
   isView: boolean = false;
   id?: string;
   currentData: any;
+  data: Select2Data = [
+    {
+        value: 'health',
+        label: 'Health',
+        data: { color: 'white', name: 'Health' },
+    },
+    {
+        value: 'music',
+        label: 'Music',
+        data: { color: 'red', name: 'Music' },
+    },
+    {
+      value: 'sport',
+      label: 'Sport',
+      data: { color: 'white', name: 'Sport' },
+    },
+    {
+        value: 'home',
+        label: 'Home',
+        data: { color: 'red', name: 'Home' },
+    },
+    {
+      value: 'electronics',
+      label: 'Electronics',
+      data: { color: 'white', name: 'Electronics' },
+    },
+    {
+        value: 'jewelery',
+        label: 'Jewelery',
+        data: { color: 'red', name: 'Jewelery' },
+    },
+    {
+      value: 'baby',
+      label: 'Baby',
+      data: { color: 'white', name: 'Baby' },
+    },
+    {
+        value: 'industrial',
+        label: 'Industrial',
+        data: { color: 'red', name: 'Industrial' },
+    },
+    {
+      value: 'clothing',
+      label: 'Clothing',
+      data: { color: 'white', name: 'Clothing' },
+    },
+    {
+        value: 'games',
+        label: 'Games',
+        data: { color: 'red', name: 'Games' },
+    },
+];
 
   employeeForm: FormGroup = new FormGroup({
     username: new FormControl(null, [Validators.required, Validators.minLength(3)]),
