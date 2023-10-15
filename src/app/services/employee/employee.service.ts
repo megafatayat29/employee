@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EMPTY, Observable, Subject } from 'rxjs';
+import { Employee } from 'src/app/models/employee.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +28,19 @@ export class EmployeeService {
     return fetch('https://6526b1c4917d673fd76cd1d8.mockapi.io/employees', options)
       .then((response) => response.json())
       .catch(err => console.error(err));
+  }
+
+  public insert(employee: Employee): Promise<any> {
+    const options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        mockData: employee,
+      })
+    };
+    
+    return fetch('https://6526b1c4917d673fd76cd1d8.mockapi.io/employees', options)
+    .then(res => res.json())
+    .catch(err => console.error(err)); 
   }
 }

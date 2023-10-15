@@ -81,7 +81,7 @@ export class LoginComponent {
     }, 10000);
 
     this.onReset();
-    this.router.navigateByUrl('/dashboard/list');
+    this.router.navigateByUrl('/list');
   }
 
   onReset(): void {
