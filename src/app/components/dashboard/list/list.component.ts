@@ -71,4 +71,8 @@ export class ListComponent implements OnInit {
   add() {
     this.router.navigateByUrl('/add');
   }
+
+  view(id: string) {
+    this.router.navigateByUrl(`/detail/${id}`);
+  }
 }

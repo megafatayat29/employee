@@ -43,4 +43,17 @@ export class EmployeeService {
     .then(res => res.json())
     .catch(err => console.error(err)); 
   }
+
+  getById(id: string) {
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+      }
+    };
+    
+    return fetch(`https://6526b1c4917d673fd76cd1d8.mockapi.io/employees/${id}`, options)
+      .then((response) => response.json())
+      .catch(err => console.error(err));
+  }
 }

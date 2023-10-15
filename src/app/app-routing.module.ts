@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'add', 
     component: FormComponent
   },
+  { 
+    path: 'detail/:id', 
+    component: FormComponent
+  },
 ];
 
 @NgModule({

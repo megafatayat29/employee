@@ -77,7 +77,8 @@
                                         <td>{{ employee.description }}</td>
                                         <td>
                                             <a class="btn btn-warning" (click)="edit(employee.firstName)"><i class="fas fa-edit"></i></a><br><br>
-                                            <a class="btn btn-danger" (click)="delete(employee.firstName)"><i class="fas fa-trash"></i></a>
+                                            <a class="btn btn-danger" (click)="delete(employee.firstName)"><i class="fas fa-trash"></i></a><br><br>
+                                            <a class="btn btn-success" (click)="view(employee.id)"><i class="fas fa-eye"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>

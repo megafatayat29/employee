@@ -10,12 +10,22 @@
                 <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                    <h1>Add New Employee</h1>
+                        <ng-container *ngIf="isView; else add">
+                            <h1>Employee Detail</h1>
+                        </ng-container>
+                        <ng-template #add>
+                            <h1>Add New Employee</h1>
+                        </ng-template>
                     </div>
                     <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Add New Employee</li>
+                        <ng-container *ngIf="isView; else add">
+                            <li class="breadcrumb-item active">Employee Detail</li>
+                        </ng-container>
+                        <ng-template #add>
+                            <li class="breadcrumb-item active">Add New Employee</li>
+                        </ng-template>
                     </ol>
                     </div>
                 </div>
@@ -152,7 +162,7 @@
                                     <option value="Books">Books</option>
                                     <option value="Health">Health</option>
                                     <option value="Shoes">Shoes</option>
-                                    <option value="Jewelry">Jewelry</option>
+                                    <option value="Jewelery">Jewelery</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -170,10 +180,17 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Save</button>
-                            <button class="btn btn-danger m-2" (click)="onClickCancel()">Cancel</button>
-                        </div>
+                        <ng-container *ngIf="isView; else add">
+                            <div class="card-footer">
+                                <button class="btn btn-primary m-2" (click)="onClickCancel()">OK</button>
+                            </div>
+                        </ng-container>
+                        <ng-template #add>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Save</button>
+                                <button class="btn btn-danger m-2" (click)="onClickCancel()">Cancel</button>
+                            </div>
+                        </ng-template>
                         </form>
                     </div>
                     <!-- /.card -->
